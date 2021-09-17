@@ -11,34 +11,35 @@
  *
  *  Compare all entered values with one another. If any of them match, exit the program.
  *
- *  Conpare all the numbers with the initial highest value (first entered number), if current number is higher
- *      than inicial highest number, then make the highest number the current number. Repeat this process
+ *  Compare all the numbers with the initial highest value (first entered number), if current number is higher
+ *      than initial highest number, then make the highest number the current number. Repeat this process
  *      until there are no more numbers to be evaluated.
  *
  *  Output the highest number entered to the user or exit the program is any entered numbers match.
  */
+
 package exercise22;
 
 import java.util.Scanner;
 
 public class Solution22 {
-    private static double number1;
-    private static double number2;
-    private static double number3;
+    private static final Scanner input = new Scanner(System.in);
 
-    public static void setNumber1(double number1) {
-        Solution22.number1 = number1;
+    private double number1;
+    private double number2;
+    private double number3;
+
+    private void setNumber1(double number1) { this.number1 = number1; }
+
+    private void setNumber2(double number2) {
+        this.number2 = number2;
     }
 
-    public static void setNumber2(double number2) {
-        Solution22.number2 = number2;
+    private void setNumber3(double number3) {
+        this.number3 = number3;
     }
 
-    public static void setNumber3(double number3) {
-        Solution22.number3 = number3;
-    }
-
-    public static double getHighest(){
+    private double getHighest(){
         if (number1 == number2 || number1 == number3 || number2 == number3){
             System.exit(0);
         }
@@ -54,18 +55,19 @@ public class Solution22 {
     }
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+
+        Solution22 app = new Solution22();
 
         System.out.print("Enter the first number: ");
-        setNumber1(input.nextDouble());
+        app.setNumber1(input.nextDouble());
 
         System.out.print("Enter the second number: ");
-        setNumber2(input.nextDouble());
+        app.setNumber2(input.nextDouble());
 
         System.out.print("Enter the third number: ");
-        setNumber3(input.nextDouble());
+        app.setNumber3(input.nextDouble());
 
-        String output = "The largest number is " + getHighest();
+        String output = "The largest number is " + app.getHighest();
 
         System.out.println(output);
     }
