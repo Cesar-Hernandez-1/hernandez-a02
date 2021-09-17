@@ -17,60 +17,60 @@ package exercise10;
 import java.util.Scanner;
 
 public class Solution10 {
-
+    private static final Scanner input = new Scanner(System.in);
     private static final double TAXRATE = 0.055;
-    private static double price;
-    private static double subtotal;
-    private static double tax;
-    private static double total;
-    private static int itemQuantity;
+    private double price;
+    private double subtotal;
+    private double tax;
+    private double total;
+    private int itemQuantity;
 
-    public static void setPrice(String price) {
-        Solution10.price = Double.parseDouble(price);
+    private void setPrice(String price) {
+        this.price = Double.parseDouble(price);
     }
 
-    public static void setItemQuantity(String itemQuantity) {
-        Solution10.itemQuantity = Integer.parseInt(itemQuantity);
+    private void setItemQuantity(String itemQuantity) {
+        this.itemQuantity = Integer.parseInt(itemQuantity);
     }
 
-    public static void calculateCharges(){
-        subtotal += (price * itemQuantity);
+    private void calculateCharges(){
+        this.subtotal += (price * itemQuantity);
     }
 
-    public static void calculateTaxes(){
-        tax = subtotal * TAXRATE;
-        total = subtotal + tax;
+    private void calculateTaxes(){
+        this.tax = subtotal * TAXRATE;
+        this.total = subtotal + tax;
     }
 
-    public static double getSubtotal() {
-        return subtotal;
+    private double getSubtotal() {
+        return this.subtotal;
     }
 
-    public static double getTax() {
-        return tax;
+    private double getTax() {
+        return this.tax;
     }
 
-    public static double getTotal() {
-        return total;
+    private double getTotal() {
+        return this.total;
     }
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        Solution10 app = new Solution10();
 
         for (int i = 0; i < 3; i++){
             System.out.print("Enter the price if item " + (i+1) + ": ");
-            setPrice(input.nextLine());
+            app.setPrice(input.nextLine());
 
             System.out.print("Enter the quantity of item " + (i+1) + ": ");
-            setItemQuantity(input.nextLine());
+            app.setItemQuantity(input.nextLine());
 
-            calculateCharges();
+            app.calculateCharges();
         }
 
-        calculateTaxes();
+        app.calculateTaxes();
 
-        String output = "Subtotal: $" + String.format("%.2f",getSubtotal()) + "\nTax: $" + String.format("%.2f",getTax())
-                + "\nTotal: $" + String.format("%.2f",getTotal());
+        String output = "Subtotal: $" + String.format("%.2f",app.getSubtotal()) + "\nTax: $" + String.format("%.2f",app.getTax())
+                + "\nTotal: $" + String.format("%.2f",app.getTotal());
 
         System.out.println(output);
     }

@@ -34,42 +34,42 @@ package exercise17;
 import java.util.Scanner;
 
 public class Solution17 {
+    private static final Scanner input = new Scanner(System.in);
     private static final double MENALCOHOLRATIO = 0.73;
     private static final double WOMENALCOHOLRATIO = 0.66;
 
-    private static int gender;
-    private static double alcoholOunces;
-    private static double weight;
-    private static double hours;
+    private int gender;
+    private double alcoholOunces;
+    private double weight;
+    private double hours;
 
-    public static void setGender(String gender) {
-        Solution17.gender = Integer.parseInt(gender);
+    private void setGender(String gender) {
+        this.gender = Integer.parseInt(gender);
     }
 
-    public static void setAlcoholOunces(String alcoholOunces) {
-        Solution17.alcoholOunces = Double.parseDouble(alcoholOunces);
+   private void setAlcoholOunces(String alcoholOunces) {
+        this.alcoholOunces = Double.parseDouble(alcoholOunces);
     }
 
-    public static void setWeight(String  weight) {
-        Solution17.weight = Double.parseDouble(weight);
+    private void setWeight(String  weight) {
+        this.weight = Double.parseDouble(weight);
     }
 
-    public static void setHours(String hours) {
-        Solution17.hours = Double.parseDouble(hours);
+    private void setHours(String hours) {
+        this.hours = Double.parseDouble(hours);
     }
 
-    public static double calculate(){
+    private double calculate(){
         double bac;
-        if(gender == 1){
-            bac = (alcoholOunces * 5.14 / weight * MENALCOHOLRATIO) - (0.015 * hours);
+        if(this.gender == 1){
+            bac = (this.alcoholOunces * 5.14 / this.weight * MENALCOHOLRATIO) - (0.015 * this.hours);
         }else{
-            bac = (alcoholOunces * 5.14 / weight * WOMENALCOHOLRATIO) - (0.015 * hours);
+            bac = (this.alcoholOunces * 5.14 / this.weight * WOMENALCOHOLRATIO) - (0.015 * this.hours);
         }
-
         return bac;
     }
 
-    public static boolean isNotDigit(String num){
+    private boolean isNotDigit(String num){
         try {
             Double.parseDouble(num);
             return false;
@@ -79,57 +79,57 @@ public class Solution17 {
     }
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        Solution17 app = new Solution17();
         String numericInput;
         String error = "Please enter a numeric value.";
 
         System.out.print("Enter a 1 if you are male or a 2 if you are female: ");
         numericInput = input.nextLine();
 
-        while(isNotDigit(numericInput)){
+        while(app.isNotDigit(numericInput)){
             System.out.println(error);
             System.out.print("Enter a 1 if you are male or a 2 if you are female: ");
             numericInput = input.nextLine();
         }
 
-        setGender(numericInput);
+        app.setGender(numericInput);
 
         System.out.print("How many ounces of alcohol did you have? ");
         numericInput = input.nextLine();
 
-        while(isNotDigit(numericInput)){
+        while(app.isNotDigit(numericInput)){
             System.out.println(error);
             System.out.print("How many ounces of alcohol did you have? ");
             numericInput = input.nextLine();
         }
 
-        setAlcoholOunces(numericInput);
+        app.setAlcoholOunces(numericInput);
 
         System.out.print("What is your weight, in pounds? ");
         numericInput = input.nextLine();
 
-        while(isNotDigit(numericInput)){
+        while(app.isNotDigit(numericInput)){
             System.out.println(error);
             System.out.print("What is your weight, in pounds? ");
             numericInput = input.nextLine();
         }
 
-        setWeight(numericInput);
+        app.setWeight(numericInput);
 
         System.out.print("How many hours has it been since your last drink? ");
         numericInput = input.nextLine();
 
-        while(isNotDigit(numericInput)){
+        while(app.isNotDigit(numericInput)){
             System.out.println(error);
             System.out.print("How many hours has it been since your last drink? ");
             numericInput = input.nextLine();
         }
 
-        setHours(numericInput);
+        app.setHours(numericInput);
 
-        String output = "\nYour BAC is " + calculate() + "\nIt is ";
+        String output = "\nYour BAC is " + app.calculate() + "\nIt is ";
 
-        output += calculate() < 0.8 ? "" : "not ";
+        output += app.calculate() < 0.8 ? "" : "not ";
 
         output += "legal for you to drive.";
 

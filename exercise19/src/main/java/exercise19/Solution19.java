@@ -28,22 +28,23 @@ package exercise19;
 import java.util.Scanner;
 
 public class Solution19 {
-    private static double weight;
-    private static double height;
+    private static final Scanner input = new Scanner(System.in);
+    private double weight;
+    private double height;
 
-    public static void setWeight(double weight) {
-        Solution19.weight = weight;
+    private void setWeight(double weight) {
+        this.weight = weight;
     }
 
-    public static void setHeight(double height) {
-        Solution19.height = height;
+    private void setHeight(double height) {
+        this.height = height;
     }
 
-    public static double calculateBMI(){
-        return (weight / (height * height)) * 703;
+    private double calculateBMI(){
+        return (this.weight / (this.height * this.height)) * 703;
     }
 
-    public static boolean isNotDigit(String num){
+    private boolean isNotDigit(String num){
         try {
             Double.parseDouble(num);
             return false;
@@ -53,38 +54,38 @@ public class Solution19 {
     }
 
     public static void main(String[] args) {
+        Solution19 app = new Solution19();
 
         String error = "Please enter a numeric value.";
         String  numericInput;
-        Scanner input = new Scanner(System.in);
 
         System.out.print("Enter your height in inches: ");
         numericInput = input.nextLine();
 
-        while(isNotDigit(numericInput)){
+        while(app.isNotDigit(numericInput)){
             System.out.println(error);
             System.out.print("Enter your height in inches: ");
             numericInput = input.nextLine();
         }
 
-        setHeight(Double.parseDouble(numericInput));
+        app.setHeight(Double.parseDouble(numericInput));
 
         System.out.print("Enter your weight in pounds: ");
         numericInput = input.nextLine();
 
-        while(isNotDigit(numericInput)){
+        while(app.isNotDigit(numericInput)){
             System.out.println(error);
             System.out.print("Enter your weight in pounds: ");
             numericInput = input.nextLine();
         }
 
-        setWeight(Double.parseDouble(numericInput));
+        app.setWeight(Double.parseDouble(numericInput));
 
-        String output = "Your BMI is " + calculateBMI() + "\n";
+        String output = "Your BMI is " + app.calculateBMI() + "\n";
 
-        if(calculateBMI() < 18.5){
+        if(app.calculateBMI() < 18.5){
             output += "You are underweight. You should see your doctor.";
-        }else if (calculateBMI() > 25){
+        }else if (app.calculateBMI() > 25){
             output += "You are overweight. You should see your doctor.";
         }else{
             output += "You are within ideal weight range.";

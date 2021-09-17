@@ -18,45 +18,46 @@ import java.util.Scanner;
 
 public class Solution07 {
     private static final double CONVERSIANFACTOR = 0.09290304;
-    private static int length;
-    private static int width;
-    private static int areaFeet;
-    private static double areaMeters;
+    private static final Scanner input = new Scanner(System.in);
+    private double length;
+    private double width;
+    private double areaFeet;
+    private double areaMeters;
 
-    public static void setLength(int length) {
-        Solution07.length = length;
+    private void setLength(double length) {
+        this.length = length;
     }
 
-    public static void setWidth(int width) {
-        Solution07.width = width;
+    private void setWidth(double width) {
+        this.width = width;
     }
 
-    public static void setArea() {
-        areaFeet = length * width;
-        areaMeters = areaFeet * CONVERSIANFACTOR;
+    private void setArea() {
+        this.areaFeet = this.length * this.width;
+        this.areaMeters = this.areaFeet * CONVERSIANFACTOR;
     }
 
-    public static double getAreaMeters() {
+    private double getAreaMeters() {
         return areaMeters;
     }
 
-    public static int getAreaFeet() {
+    private double getAreaFeet() {
         return areaFeet;
     }
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        Solution07 app = new Solution07();
 
         System.out.print("What is the length of the room in feet? ");
-        setLength(input.nextInt());
+        app.setLength(input.nextInt());
 
         System.out.print("What is the width of the room in feet? ");
-        setWidth(input.nextInt());
+        app.setWidth(input.nextInt());
 
-        setArea();
+        app.setArea();
 
-        String output = "The area is\n" + getAreaFeet() + " square feet\n" +
-                getAreaMeters() + " square meters";
+        String output = "The area is\n" + app.getAreaFeet() + " square feet\n" +
+                app.getAreaMeters() + " square meters";
 
         System.out.println(output);
     }

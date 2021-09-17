@@ -18,35 +18,35 @@ package exercise09;
 import java.util.Scanner;
 
 public class Solution09 {
-
+    private static final Scanner input = new Scanner(System.in);
     private static final int  GALLONAREA = 350;
-    private static double length;
-    private static double width;
-    private static double area;
-    private static int gallonNum;
+    private double length;
+    private double width;
+    private double area;
+    private int gallonNum;
 
-    public static void setLength(double num){length = num;}
-    public static void setWidth(double num){width = num;}
-    public static void setArea(){ area = length * width; }
-    public static void setGallonNum(){ gallonNum = (int) Math.ceil(area / GALLONAREA);}
+    private void setLength(double length){this.length = length;}
+    private void setWidth(double width){this.width = width;}
+    private void setArea(){ this.area = length * width; }
+    private void setGallonNum(){ this.gallonNum = (int) Math.ceil(area / GALLONAREA);}
 
-    public static int getArea(){return (int) area;}
-    public static int getGallonNum(){return gallonNum;}
+    private int getArea(){return (int) this.area;}
+    private int getGallonNum(){return this.gallonNum;}
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        Solution09 app = new Solution09();
 
         System.out.print("Enter the length in feet: ");
-        setLength(input.nextDouble());
+        app.setLength(input.nextDouble());
 
         System.out.print("Enter the width in feet: ");
-        setWidth(input.nextDouble());
+        app.setWidth(input.nextDouble());
 
-        setArea();
-        setGallonNum();
+        app.setArea();
+        app.setGallonNum();
 
-        String output = "You will need to purchase " + getGallonNum() + " gallons of paint" +
-                " to cover " + getArea() + " square feet.";
+        String output = "You will need to purchase " + app.getGallonNum() + " gallons of paint" +
+                " to cover " + app.getArea() + " square feet.";
 
         System.out.println(output);
 

@@ -31,8 +31,9 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Solution18 {
+    private static final Scanner input = new Scanner(System.in);
 
-    public static double calculateTemperature(double temp, String tempChoice){
+    private double calculateTemperature(double temp, String tempChoice){
         if(tempChoice.contains("Fahrenheit")){
             return (temp - 32) * 5 / 9;
         }else{
@@ -41,7 +42,7 @@ public class Solution18 {
     }
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        Solution18 app = new Solution18();
         String tempPrompt = "he temperature in ";
 
         System.out.print("Press C to convert from Fahrenheit to Celsius.\nPress F to convert from Celsius to Fahrenheit.\nYour choice: ");
@@ -53,7 +54,7 @@ public class Solution18 {
         }
 
         System.out.print("Please enter t" + tempPrompt + ": ");
-        System.out.printf("T%s is %f.", tempPrompt, calculateTemperature(input.nextDouble(),tempPrompt));
+        System.out.printf("T%s is %f.", tempPrompt, app.calculateTemperature(input.nextDouble(),tempPrompt));
 
     }
 }

@@ -26,72 +26,73 @@ package exercise13;
 import java.util.Scanner;
 
 public class Solution13 {
-    private static double principle;
-    private static double rate;
-    private static double investment;
-    private static int years;
-    private static int compound;
+    private static final Scanner input = new Scanner(System.in);
+    private double principle;
+    private double rate;
+    private double investment;
+    private int years;
+    private int compound;
 
-    public static void setPrinciple(double principle) {
-        Solution13.principle = principle;
+    private void setPrinciple(double principle) {
+        this.principle = principle;
     }
 
-    public static void setCompound(int compound) {
-        Solution13.compound = compound;
+    private void setCompound(int compound) {
+        this.compound = compound;
     }
 
-    public static int getCompound() {
-        return compound;
+    private int getCompound() {
+        return this.compound;
     }
 
-    public static void setRate(double rate) {
-        Solution13.rate = rate / 100;
+    private void setRate(double rate) {
+        this.rate = rate / 100;
     }
 
-    public static double getPrinciple() {
-        return principle;
+    private double getPrinciple() {
+        return this.principle;
     }
 
-    public static void setYears(int years) {
-        Solution13.years = years;
+    private void setYears(int years) {
+        this.years = years;
     }
 
-    public static void calculateInvestment(){
-        investment = principle * Math.pow((1 + (rate/compound)),(compound * years));
+    private void calculateInvestment(){
+        this.investment = principle * Math.pow((1 + (rate/compound)),(compound * years));
     }
 
-    public static double getInvestment() {
-        return investment;
+    private double getInvestment() {
+        return this.investment;
     }
 
-    public static double getRate() {
-        return rate*100;
+    private double getRate() {
+        return this.rate*100;
     }
 
-    public static int getYears() {
-        return years;
+    private int getYears() {
+        return this.years;
     }
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        Solution13 app = new Solution13();
 
         System.out.print("What is the principal amount? ");
-        setPrinciple(input.nextDouble());
+        app.setPrinciple(input.nextDouble());
 
         System.out.print("What is the percentage rate? ");
-        setRate(input.nextDouble());
+        app.setRate(input.nextDouble());
 
         System.out.print("What is the number of years? ");
-        setYears(input.nextInt());
+        app.setYears(input.nextInt());
 
         System.out.print("What is the number of times the interest is compounded per year? ");
-        setCompound(input.nextInt());
+        app.setCompound(input.nextInt());
 
-        calculateInvestment();
+        app.calculateInvestment();
 
-        String output = "$" + String.format("%.2f",getPrinciple()) + " invested at " + getRate() + "% for " +
-                getYears() + " years compounded " + getCompound() + " times per year is $" +
-                String.format("%.2f",getInvestment()) + ".";
+        String output = "$" + String.format("%.2f",app.getPrinciple()) + " invested at " + app.getRate() + "% for " +
+                app.getYears() + " years compounded " + app.getCompound() + " times per year is $" +
+                String.format("%.2f",app.getInvestment()) + ".";
 
         System.out.println(output);
     }

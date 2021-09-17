@@ -19,19 +19,25 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Solution15 {
+    private static final Scanner input = new Scanner(System.in);
     private static final String PASSWORD= "abc$123";
 
+    private String isPassword(String password){
+        if(Objects.equals(password, PASSWORD)){
+            return "Welcome!";
+        }else{
+            return "I don't know you.";
+        }
+    }
+
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        Solution15 app = new Solution15();
 
         System.out.print("What is the password? ");
-        String userPassword = input.nextLine();
 
-        if(Objects.equals(userPassword, PASSWORD)){
-            System.out.println("Welcome!");
-        }else{
-            System.out.println("I don't know you.");
-        }
+        String output = app.isPassword(input.nextLine());
+
+        System.out.println(output);
 
     }
 }

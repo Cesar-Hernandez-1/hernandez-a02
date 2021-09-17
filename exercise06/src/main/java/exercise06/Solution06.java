@@ -22,39 +22,42 @@ import java.util.Scanner;
 
 public class Solution06 {
     private static final int YEAR = Calendar.getInstance().get(Calendar.YEAR);
-    private static int userAge;
-    private static int retireAge;
+    private static final Scanner input = new Scanner(System.in);
+    private int userAge;
+    private int retireAge;
 
     public static int getYEAR() {
         return YEAR;
     }
 
-    public static void setUserAge(String userAGE) {
-        Solution06.userAge = Integer.parseInt(userAGE);
+    private void setUserAge(String userAGE) {
+        this.userAge = Integer.parseInt(userAGE);
     }
 
-    public static void setRetireAge(String retireAge) {
-        Solution06.retireAge = Integer.parseInt(retireAge);
+    private void setRetireAge(String retireAge) {
+        this.retireAge = Integer.parseInt(retireAge);
     }
 
-    public static String yearsLeft(){
+    private String yearsLeft(){
         return String.valueOf(retireAge - userAge);
     }
 
-    public static String retireYear(){
+    private String retireYear(){
         return String.valueOf(YEAR + (retireAge - userAge));
     }
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+
+        Solution06 app = new Solution06();
+
         System.out.print("What is your current age? ");
-        setUserAge(input.nextLine());
+        app.setUserAge(input.nextLine());
 
         System.out.print("At what age would you like to retire? ");
-        setRetireAge(input.nextLine());
+        app.setRetireAge(input.nextLine());
 
-        String output = "You have " + yearsLeft() + " years left until you can retire.\n" +
-                "It's " + getYEAR() + " so you can retire in " + retireYear() + ".";
+        String output = "You have " + app.yearsLeft() + " years left until you can retire.\n" +
+                "It's " + app.getYEAR() + " so you can retire in " + app.retireYear() + ".";
 
         System.out.println(output);
 

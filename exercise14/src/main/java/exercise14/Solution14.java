@@ -21,41 +21,42 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Solution14 {
+    private static final Scanner input = new Scanner(System.in);
     private static final double TAXWI = 0.055;
-    private static double orderAmount;
+    private double orderAmount;
 
-    public static void setOrderAmount(String orderAmount) {
-        Solution14.orderAmount = Double.parseDouble(orderAmount);
+    private void setOrderAmount(String orderAmount) {
+        this.orderAmount = Double.parseDouble(orderAmount);
     }
 
-    public static double getOrderAmount() {
-        return orderAmount;
+    private double getOrderAmount() {
+        return this.orderAmount;
     }
 
-    public static double getTAXWI() {
-        return orderAmount * TAXWI;
+    private double getTAXWI() {
+        return this.orderAmount * TAXWI;
     }
 
-    public static double getTotalAmount() {
-        return orderAmount + (orderAmount * TAXWI);
+    private double getTotalAmount() {
+        return this.orderAmount + (this.orderAmount * TAXWI);
     }
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        Solution14 app = new Solution14();
         String output;
 
         System.out.print("What is the order amount? ");
-        setOrderAmount(input.nextLine());
+        app.setOrderAmount(input.nextLine());
 
         System.out.print("What is the state? ");
-        String state = input.nextLine();
+        String state = Solution14.input.nextLine();
 
         if(!(Objects.equals(state, "WI"))){
-            output = "The total is $" + String.format("%.2f",getOrderAmount());
+            output = "The total is $" + String.format("%.2f",app.getOrderAmount());
         }else{
-            output = "The subtotal is $" + String.format("%.2f.%n",getOrderAmount()) +
-                    "The tax is $" + String.format("%.2f.%n", getTAXWI()) +
-                    "The total is $" + String.format("%.2f.",getTotalAmount());
+            output = "The subtotal is $" + String.format("%.2f.%n",app.getOrderAmount()) +
+                    "The tax is $" + String.format("%.2f.%n", app.getTAXWI()) +
+                    "The total is $" + String.format("%.2f.",app.getTotalAmount());
         }
 
         System.out.println(output);

@@ -17,26 +17,26 @@ package exercise16;
 import java.util.Scanner;
 
 public class Solution16 {
+    private static final Scanner input = new Scanner(System.in);
+    private int userAge;
 
-    private static int userAge;
-
-    public static void setUserAge(int userAge) {
-        Solution16.userAge = userAge;
+    private void setUserAge(int userAge) {
+        this.userAge = userAge;
     }
 
-    public static int getUserAge() {
-        return userAge;
+    private String isLegal(){
+        return (this.userAge < 16) ? "You are not old enough to legally drive." : ("You are old enough to" +
+                " legally drive.");
     }
 
     public static void main(String[] args) {
         String output;
-        Scanner input = new Scanner(System.in);
+        Solution16 app = new Solution16();
 
         System.out.print("What is your age? ");
-        setUserAge(input.nextInt());
+        app.setUserAge(input.nextInt());
 
-        output = (getUserAge() < 16) ? "You are not old enough to legally drive." : ("You are old enough to" +
-                " legally drive.");
+        output = app.isLegal();
 
         System.out.println(output);
     }

@@ -16,47 +16,48 @@ package exercise11;
 import java.util.Scanner;
 
 public class Solution11 {
-    private static double cFrom;
-    private static double cTo;
-    private static double rate;
+    private static final Scanner input = new Scanner(System.in);
+    private double cFrom;
+    private double cTo;
+    private double rate;
 
-    public static double getcTo() {
-        return cTo;
+    private double getcTo() {
+        return this.cTo;
     }
 
-    public static double getcFrom() {
-        return cFrom;
+    private double getcFrom() {
+        return this.cFrom;
     }
 
-    public static void setcFrom(double cFrom) {
-        Solution11.cFrom = cFrom;
+    private void setcFrom(double cFrom) {
+        this.cFrom = cFrom;
     }
 
-    public static double getRate() {
-        return rate;
+    private double getRate() {
+        return this.rate;
     }
 
-    public static void setRate(double rate) {
-        Solution11.rate = rate;
+    private void setRate(double rate) {
+        this.rate = rate;
     }
 
-    public static void calculateCTo(){
-        cTo = rate * cFrom;
+    private void calculateCTo(){
+        this.cTo = rate * cFrom;
     }
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        Solution11 app = new Solution11();
 
         System.out.print("How many euros are you exchanging? ");
-        setcFrom(input.nextDouble());
+        app.setcFrom(input.nextDouble());
 
         System.out.print("What is the exchange rate? ");
-        setRate(input.nextDouble());
+        app.setRate(input.nextDouble());
 
-        calculateCTo();
+        app.calculateCTo();
 
-        String output = String.format("%.2f",getcFrom()) + " euros at an exchange rate of " + getRate() +
-                " is " + String.format("%.2f",getcTo()) + " U.S. dollars.";
+        String output = String.format("%.2f",app.getcFrom()) + " euros at an exchange rate of " + app.getRate() +
+                " is " + String.format("%.2f",app.getcTo()) + " U.S. dollars.";
 
         System.out.println(output);
     }

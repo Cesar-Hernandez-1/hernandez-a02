@@ -23,13 +23,14 @@ package exercise21;
 import java.util.Scanner;
 
 public class Solution21 {
-    private static int monthNumber;
+    private static final Scanner input = new Scanner(System.in);
+    private int monthNumber;
 
-    public static void setMonthNumber(int monthNumber) {
-        Solution21.monthNumber = monthNumber;
+    private void setMonthNumber(int monthNumber) {
+        this.monthNumber = monthNumber;
     }
 
-    public static String getMonthName(){
+    private String getMonthName(){
         String monthNamePrompt = "The name of the month is ";
         String monthName;
         switch (monthNumber){
@@ -63,12 +64,12 @@ public class Solution21 {
     }
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        Solution21 app = new Solution21();
 
         System.out.print("Please enter the number of the month: ");
-        setMonthNumber(input.nextInt());
+        app.setMonthNumber(input.nextInt());
 
-        String output = getMonthName();
+        String output = app.getMonthName();
 
         System.out.println(output);
 

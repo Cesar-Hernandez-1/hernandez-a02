@@ -20,40 +20,39 @@ package exercise08;
 import java.util.Scanner;
 
 public class Solution08 {
-    private static int people;
-    private static int pizzas;
-    private static int slices;
-    private static int share;
+    private static final Scanner input = new Scanner(System.in);
+    private int people;
+    private int pizzas;
+    private int slices;
+    private int share;
 
-    public static void setPeople(int people) {
-        Solution08.people = people;
+    private void setPeople(int people) { this.people = people; }
+
+    private void setPizzas(int pizzas) {
+        this.pizzas = pizzas;
     }
 
-    public static void setPizzas(int pizzas) {
-        Solution08.pizzas = pizzas;
+    private void setSlices(int slices) {
+        this.slices = slices;
     }
 
-    public static void setSlices(int slices) {
-        Solution08.slices = slices;
+    private void setShare() {
+        this.share = (pizzas * slices) / people;
     }
 
-    public static void setShare() {
-        Solution08.share = (pizzas * slices) / people;
-    }
-
-    public static int getPeople() {
+    private int getPeople() {
         return people;
     }
 
-    public static int getPizzas() {
+    private int getPizzas() {
         return pizzas;
     }
 
-    public static int getSlices() {
+    private int getSlices() {
         return slices;
     }
 
-    public static int sharePizza(){
+    private int sharePizza(){
         if(share % 2 == 0){
             return share;
         }else{
@@ -61,27 +60,27 @@ public class Solution08 {
         }
     }
 
-    public static int leftovers(){
+    private int leftovers(){
         return share % 2;
     }
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        Solution08 app = new Solution08();
 
         System.out.print("How many people? ");
-        setPeople(input.nextInt());
+        app.setPeople(input.nextInt());
 
         System.out.print("How many pizzas do you have? ");
-        setPizzas(input.nextInt());
+        app.setPizzas(input.nextInt());
 
         System.out.print("How many slices per pizza? ");
-        setSlices(input.nextInt());
+        app.setSlices(input.nextInt());
 
-        setShare();
+        app.setShare();
 
-        String output = getPeople() + " people with " + getPizzas() + " pizzas (" +
-                (getPizzas()*getSlices()) + " slices)\nEach person gets " + sharePizza() +
-                " pieces of pizza.\nThere are " + leftovers() + " leftover pieces.";
+        String output = app.getPeople() + " people with " + app.getPizzas() + " pizzas (" +
+                (app.getPizzas() * app.getSlices()) + " slices)\nEach person gets " + app.sharePizza() +
+                " pieces of pizza.\nThere are " + app.leftovers() + " leftover pieces.";
 
         System.out.println(output);
     }
