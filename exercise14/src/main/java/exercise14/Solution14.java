@@ -6,11 +6,16 @@
 /*
  *  Pseudocode:
  *  Ask user to enter the order amount.
+ *
  *  Ask user to enter the state initials.
+ *
  *  Store entered values in respective variables.
+ *
  *  If state entered is not "WI" output the entered order amount as the total
+ *
  *  Otherwise, if the state is "WI", compute the tax (order amount multiplied by WI tax of 0.055)
  *      and add it to the entered order amount(subtotal).
+ *
  *  Output the total if the state is not "WI" or output the subtotal, tax on the order, and total if
  *      the state is "WI".
  */
@@ -27,7 +32,7 @@ public class Solution14 {
     private double orderAmount;
 
     private void setOrderAmount(String orderAmount) {
-        this.orderAmount = Double.parseDouble(orderAmount);
+        this.orderAmount = round(Double.parseDouble(orderAmount));
     }
 
     private double getOrderAmount() {
@@ -40,7 +45,21 @@ public class Solution14 {
     }
 
     private double getTotalAmount() {
-        return this.orderAmount + this.tax;
+        return round(this.orderAmount + this.tax);
+    }
+
+    private double round(double inputAmount){
+        inputAmount *= 100;
+        String amount = inputAmount + "";
+
+        if(!amount.endsWith(".0")){
+            int intAmount = (int)inputAmount;
+            intAmount += 1;
+            inputAmount = intAmount;
+        }
+
+        inputAmount /= 100;
+        return inputAmount;
     }
 
     public static void main(String[] args) {
@@ -55,7 +74,7 @@ public class Solution14 {
 
         if(Objects.equals(state, "WI")){
             output += "The subtotal is " + String.format("$%.2f.%n",app.getOrderAmount()) +
-                    "The tax is " + String.format("$%.2f.%n", app.getTAXWI());
+                    "The tax is " + String.format("$%.2f.%n", app.round(app.getTAXWI()));
         }
 
         output += "The total is " + String.format("$%.2f",app.getTotalAmount());

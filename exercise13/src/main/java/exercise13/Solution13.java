@@ -34,7 +34,7 @@ public class Solution13 {
     private int compound;
 
     private void setPrinciple(double principle) {
-        this.principle = principle;
+        this.principle = round(principle);
     }
 
     private void setCompound(int compound) {
@@ -73,6 +73,20 @@ public class Solution13 {
         return this.years;
     }
 
+    private double round(double inputAmount){
+        inputAmount *= 100;
+        String amount = inputAmount + "";
+
+        if(!amount.endsWith(".0")){
+            int intAmount = (int)inputAmount;
+            intAmount += 1;
+            inputAmount = intAmount;
+        }
+
+        inputAmount /= 100;
+        return inputAmount;
+    }
+
     public static void main(String[] args) {
         Solution13 app = new Solution13();
 
@@ -92,7 +106,7 @@ public class Solution13 {
 
         String output = String.format("$%.2f",app.getPrinciple()) + " invested at " + app.getRate() + "% for " +
                 app.getYears() + " years compounded " + app.getCompound() + " times per year is " +
-                String.format("$%.2f",app.getInvestment()) + ".";
+                String.format("$%.2f.", app.round(app.getInvestment()));
 
         System.out.println(output);
     }

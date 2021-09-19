@@ -26,9 +26,7 @@ public class Solution12 {
     private double investment;
     private int years;
 
-    private void setPrinciple(double principle) {
-        this.principle = principle;
-    }
+    private void setPrinciple(double principle) { this.principle = round(principle); }
 
     private void setRate(double rate) {
         this.rate = rate;
@@ -52,6 +50,20 @@ public class Solution12 {
         return this.years;
     }
 
+    private double round(double inputAmount){
+        inputAmount *= 100;
+        String amount = inputAmount + "";
+
+        if(!amount.endsWith(".0")){
+            int intAmount = (int)inputAmount;
+            intAmount += 1;
+            inputAmount = intAmount;
+        }
+
+        inputAmount /= 100;
+        return inputAmount;
+    }
+
     public static void main(String[] args) {
         Solution12 app = new Solution12();
 
@@ -67,7 +79,7 @@ public class Solution12 {
         app.calculateInvestment();
 
         String output = "After " + app.getYears() + " at " + app.getRate() + "%, the investment will be worth " +
-                String.format("$%.2f", app.getInvestment()) + ".";
+                String.format("$%.2f.", app.round(app.getInvestment()));
 
         System.out.println(output);
     }

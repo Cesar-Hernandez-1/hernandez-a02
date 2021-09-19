@@ -6,9 +6,13 @@
 /*
  *  Pseudocode:
  *  Ask user to input the amount of money they have in euros
+ *
  *  Ask user to input the exchange rate
+ *
  *  Store inputted data in respective variables
+ *
  *  Compute US currency by multiplying the exchange rate with the euros' currency
+ *
  *  Output the number of euros, exchange rate, and conversion to US dollars.
  */
 
@@ -30,7 +34,7 @@ public class Solution11 {
     }
 
     private void setCurrencyFrom(double currencyFrom) {
-        this.currencyFrom = currencyFrom;
+        this.currencyFrom = round(currencyFrom);
     }
 
     private double getRate() {
@@ -45,6 +49,20 @@ public class Solution11 {
         this.currencyTo = rate * currencyFrom;
     }
 
+    private double round(double inputAmount){
+        inputAmount *= 100;
+        String amount = inputAmount + "";
+
+        if(!amount.endsWith(".0")){
+            int intAmount = (int)inputAmount;
+            intAmount += 1;
+            inputAmount = intAmount;
+        }
+
+        inputAmount /= 100;
+        return inputAmount;
+    }
+
     public static void main(String[] args) {
         Solution11 app = new Solution11();
 
@@ -57,7 +75,7 @@ public class Solution11 {
         app.calculateCurrencyTo();
 
         String output = String.format("%.2f",app.getCurrencyFrom()) + " euros at an exchange rate of " + app.getRate() +
-                " is " + String.format("%.2f",app.getCurrencyTo()) + " U.S. dollars.";
+                " is " + String.format("%.2f", app.round(app.getCurrencyTo())) + " U.S. dollars.";
 
         System.out.println(output);
     }

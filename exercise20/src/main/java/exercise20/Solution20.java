@@ -5,11 +5,25 @@
 
 /*
  *  Pseudocode:
+ *  Ask user to input order amount.
+ *
+ *  Ask user to enter what state they live in.
+ *
+ *  Ask user what county they live in.
+ *
+ *  If state entered is Wisconsin, as 5% sales tax of order amount to tax.
+ *  If county in Wisconsin is Eau Claire, add an aditional 0.5% to tax.
+ *  If Dunn is enteres, add an additional 0.4% to tax
+ *
+ *  If Illinois was entered for state, only add 8% tax.
+ *
+ *  Any other state entered is no tax.
+ *
+ *  Output amount of tax if applicable and the total amount.
  *
  */
 package exercise20;
 
-import java.text.DecimalFormat;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -22,7 +36,7 @@ public class Solution20 {
 
 
     private void setOrderAmount(double orderAmount) {
-        this.orderAmount = orderAmount;
+        this.orderAmount = round(orderAmount);
     }
 
     private void setState(String state) {
@@ -35,26 +49,36 @@ public class Solution20 {
 
     private double calculateTax(){
         if (Objects.equals(state, "Wisconsin")){
-            tax += orderAmount * (0.05);
+            this.tax += this.orderAmount * (0.05);
             if(Objects.equals(county, "Eau Claire")){
-                tax += 0.005;
+                this.tax += (this.orderAmount * 0.005);
             }else if(Objects.equals(county, "Dunn")){
-                tax += 0.004;
+                this.tax += (this.orderAmount * 0.004);
             }
         }else if (Objects.equals(state, "Illinois")){
-            tax += orderAmount * 0.08;
-        }else{
-            return tax;
+            this.tax += (this.orderAmount * 0.08);
         }
-        return tax;
+
+        this.tax = round(this.tax);
+        return this.tax;
     }
 
     private double calculateTotal(){
-        return orderAmount + tax;
+        return this.orderAmount + this.tax;
     }
 
     private double round(double inputAmount){
-        return Double.parseDouble(String.format("%.2f",inputAmount));
+        inputAmount *= 100;
+        String amount = inputAmount + "";
+
+        if(!amount.endsWith(".0")){
+            int intAmount = (int)inputAmount;
+            intAmount += 1;
+            inputAmount = intAmount;
+        }
+
+        inputAmount /= 100;
+        return inputAmount;
     }
 
     public static void main(String[] args) {
@@ -69,10 +93,9 @@ public class Solution20 {
         System.out.print("What county do you live in? ");
         app.setCounty(input.nextLine());
 
-        String output = "The tax is " + String.format("$%.2f.%n",app.round(app.calculateTax())) +
-                "The total is " + String.format("$%.2f.",app.round(app.calculateTotal()));
+        String output = "The tax is " + String.format("$%.2f.%n",app.calculateTax()) +
+                "The total is " + String.format("$%.2f.",app.calculateTotal());
 
         System.out.println(output);
     }
-
 }
