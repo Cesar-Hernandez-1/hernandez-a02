@@ -46,7 +46,7 @@ public class Solution13 {
     }
 
     private void setRate(double rate) {
-        this.rate = rate / 100;
+        this.rate = rate;
     }
 
     private double getPrinciple() {
@@ -80,7 +80,7 @@ public class Solution13 {
         app.setPrinciple(input.nextDouble());
 
         System.out.print("What is the percentage rate? ");
-        app.setRate(input.nextDouble());
+        app.setRate(input.nextDouble() / 100);
 
         System.out.print("What is the number of years? ");
         app.setYears(input.nextInt());
@@ -90,9 +90,9 @@ public class Solution13 {
 
         app.calculateInvestment();
 
-        String output = "$" + String.format("%.2f",app.getPrinciple()) + " invested at " + app.getRate() + "% for " +
-                app.getYears() + " years compounded " + app.getCompound() + " times per year is $" +
-                String.format("%.2f",app.getInvestment()) + ".";
+        String output = String.format("$%.2f",app.getPrinciple()) + " invested at " + app.getRate() + "% for " +
+                app.getYears() + " years compounded " + app.getCompound() + " times per year is " +
+                String.format("$%.2f",app.getInvestment()) + ".";
 
         System.out.println(output);
     }

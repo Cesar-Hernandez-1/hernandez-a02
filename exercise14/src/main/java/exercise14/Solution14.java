@@ -23,6 +23,7 @@ import java.util.Scanner;
 public class Solution14 {
     private static final Scanner input = new Scanner(System.in);
     private static final double TAXWI = 0.055;
+    private double tax = 0;
     private double orderAmount;
 
     private void setOrderAmount(String orderAmount) {
@@ -34,16 +35,17 @@ public class Solution14 {
     }
 
     private double getTAXWI() {
-        return this.orderAmount * TAXWI;
+        this.tax = this.orderAmount * TAXWI;
+        return this.tax;
     }
 
     private double getTotalAmount() {
-        return this.orderAmount + (this.orderAmount * TAXWI);
+        return this.orderAmount + this.tax;
     }
 
     public static void main(String[] args) {
         Solution14 app = new Solution14();
-        String output;
+        String output = "";
 
         System.out.print("What is the order amount? ");
         app.setOrderAmount(input.nextLine());
@@ -51,13 +53,12 @@ public class Solution14 {
         System.out.print("What is the state? ");
         String state = Solution14.input.nextLine();
 
-        if(!(Objects.equals(state, "WI"))){
-            output = "The total is $" + String.format("%.2f",app.getOrderAmount());
-        }else{
-            output = "The subtotal is $" + String.format("%.2f.%n",app.getOrderAmount()) +
-                    "The tax is $" + String.format("%.2f.%n", app.getTAXWI()) +
-                    "The total is $" + String.format("%.2f.",app.getTotalAmount());
+        if(Objects.equals(state, "WI")){
+            output += "The subtotal is " + String.format("$%.2f.%n",app.getOrderAmount()) +
+                    "The tax is " + String.format("$%.2f.%n", app.getTAXWI());
         }
+
+        output += "The total is " + String.format("$%.2f",app.getTotalAmount());
 
         System.out.println(output);
     }

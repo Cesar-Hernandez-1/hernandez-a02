@@ -17,20 +17,20 @@ import java.util.Scanner;
 
 public class Solution11 {
     private static final Scanner input = new Scanner(System.in);
-    private double cFrom;
-    private double cTo;
+    private double currencyFrom;
+    private double currencyTo;
     private double rate;
 
-    private double getcTo() {
-        return this.cTo;
+    private double getCurrencyTo() {
+        return this.currencyTo;
     }
 
-    private double getcFrom() {
-        return this.cFrom;
+    private double getCurrencyFrom() {
+        return this.currencyFrom;
     }
 
-    private void setcFrom(double cFrom) {
-        this.cFrom = cFrom;
+    private void setCurrencyFrom(double currencyFrom) {
+        this.currencyFrom = currencyFrom;
     }
 
     private double getRate() {
@@ -41,23 +41,23 @@ public class Solution11 {
         this.rate = rate;
     }
 
-    private void calculateCTo(){
-        this.cTo = rate * cFrom;
+    private void calculateCurrencyTo(){
+        this.currencyTo = rate * currencyFrom;
     }
 
     public static void main(String[] args) {
         Solution11 app = new Solution11();
 
         System.out.print("How many euros are you exchanging? ");
-        app.setcFrom(input.nextDouble());
+        app.setCurrencyFrom(input.nextDouble());
 
         System.out.print("What is the exchange rate? ");
         app.setRate(input.nextDouble());
 
-        app.calculateCTo();
+        app.calculateCurrencyTo();
 
-        String output = String.format("%.2f",app.getcFrom()) + " euros at an exchange rate of " + app.getRate() +
-                " is " + String.format("%.2f",app.getcTo()) + " U.S. dollars.";
+        String output = String.format("%.2f",app.getCurrencyFrom()) + " euros at an exchange rate of " + app.getRate() +
+                " is " + String.format("%.2f",app.getCurrencyTo()) + " U.S. dollars.";
 
         System.out.println(output);
     }

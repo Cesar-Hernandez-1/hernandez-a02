@@ -45,12 +45,16 @@ public class Solution19 {
     }
 
     private boolean isNotDigit(String num){
-        try {
-            Double.parseDouble(num);
-            return false;
-        }catch (Exception e){
-            return true;
+        char[] number = num.toCharArray();
+        boolean isNotDigit = false;
+
+        for(int i = 0; i < number.length; i++){
+            if(Character.isAlphabetic(number[i])){
+                isNotDigit = true;
+                break;
+            }
         }
+        return isNotDigit;
     }
 
     public static void main(String[] args) {

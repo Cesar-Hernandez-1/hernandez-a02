@@ -28,6 +28,10 @@ public class Solution07 {
         this.length = length;
     }
 
+    private double getLength() { return this.length; }
+
+    private double getWidth()  { return this.width; }
+
     private void setWidth(double width) {
         this.width = width;
     }
@@ -56,8 +60,9 @@ public class Solution07 {
 
         app.setArea();
 
-        String output = "The area is\n" + app.getAreaFeet() + " square feet\n" +
-                app.getAreaMeters() + " square meters";
+        String output = "You entered dimensions of " + app.getLength() + " feet by " + app.getWidth() + " feet.\n"
+                + "The area is\n" + app.getAreaFeet() + " square feet\n" +
+                String.format("%.3f",app.getAreaMeters()) + " square meters";
 
         System.out.println(output);
     }

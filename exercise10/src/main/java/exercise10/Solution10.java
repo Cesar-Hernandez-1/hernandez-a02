@@ -5,10 +5,14 @@
 
 /*
  * Pseudocode:
- * Delcare constant double variable named TAXRATE to hold constant tax rate of 0.055
+ * Declare constant double variable named TAXRATE to hold constant tax rate of 0.055
+ *
  * Ask user to enter the price and quantity of an item three times
- * For each item price and quantity entered, add to subtotal
- * After user entered three item prices and quantities, calculate tax from subtotal
+ *
+ * For each item price and quantity entered, store strings
+ *
+ * After user entered three item prices and quantities, calculate subtotal and relative tax
+ *
  * Output to user the subtotal, tax on the order, and the total cost (subtotal with tax)
  *      of the order.
  */
@@ -57,13 +61,20 @@ public class Solution10 {
     public static void main(String[] args) {
         Solution10 app = new Solution10();
 
+        String [] prices = new String[3];
+        String [] quantitys = new String[3];
+
         for (int i = 0; i < 3; i++){
-            System.out.print("Enter the price if item " + (i+1) + ": ");
-            app.setPrice(input.nextLine());
+            System.out.print("Enter the price of item " + (i+1) + ": ");
+            prices[i] = input.nextLine();
 
             System.out.print("Enter the quantity of item " + (i+1) + ": ");
-            app.setItemQuantity(input.nextLine());
+            quantitys[i] = input.nextLine();
+        }
 
+        for (int i = 0; i < 3; i++){
+            app.setPrice(prices[i]);
+            app.setItemQuantity(quantitys[i]);
             app.calculateCharges();
         }
 

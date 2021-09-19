@@ -6,11 +6,16 @@
 /*
  *  Pseudocode:
  *  Get current year from computer and store it in "year" variable.
+ *
  *  Ask for user to impute their current age and store in a variable.
+ *
  *  Ask for user to impute the age they would like to retire and store it in a variable.
+ *
  *  Convert two input strings into integers respectively.
+ *
  *  Compute number of years left until retirement by subtracting the retirement age by the current age.
  *  Compute year of retirement by adding number of years left until retirement to current year.
+ *
  *  Display number of years user has left until retirement and display current year with future year of retirement.
  *
  */
@@ -26,7 +31,7 @@ public class Solution06 {
     private int userAge;
     private int retireAge;
 
-    public static int getYEAR() {
+    private int getYEAR() {
         return YEAR;
     }
 
@@ -39,11 +44,11 @@ public class Solution06 {
     }
 
     private String yearsLeft(){
-        return String.valueOf(retireAge - userAge);
+        return String.valueOf(this.retireAge - this.userAge);
     }
 
     private String retireYear(){
-        return String.valueOf(YEAR + (retireAge - userAge));
+        return String.valueOf(YEAR + (this.retireAge - this.userAge));
     }
 
     public static void main(String[] args) {

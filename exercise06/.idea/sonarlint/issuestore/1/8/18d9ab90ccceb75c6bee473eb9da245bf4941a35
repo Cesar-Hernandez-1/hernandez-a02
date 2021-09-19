@@ -1,7 +1,5 @@
 
-M	java:S1065"9Replace this use of System.out or System.err by a logger.(øšä|
-N	java:S1068"9Replace this use of System.out or System.err by a logger.(Ì—Ã¦
-W
-java:S2209<"5Change this instance-reference to a static reference.(èœ¤¤ûÿÿÿÿ8°ëŠ¿/
-U	java:S106>"9Replace this use of System.out or System.err by a logger.(¢àóÄ8ßâ´·¼/
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¢ó¹Âûÿÿÿÿ
+M	java:S106:"9Replace this use of System.out or System.err by a logger.(øšä|
+N	java:S106="9Replace this use of System.out or System.err by a logger.(Ì—Ã¦
+U	java:S106C"9Replace this use of System.out or System.err by a logger.(¢àóÄ8ßâ´·¼/
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¢ó¹Âûÿÿÿÿ

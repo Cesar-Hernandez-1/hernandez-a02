@@ -30,7 +30,7 @@ public class Solution09 {
     private void setArea(){ this.area = length * width; }
     private void setGallonNum(){ this.gallonNum = (int) Math.ceil(area / GALLONAREA);}
 
-    private int getArea(){return (int) this.area;}
+    private double getArea(){return Double.parseDouble(String.format("%.2f",this.area));}
     private int getGallonNum(){return this.gallonNum;}
 
     public static void main(String[] args) {

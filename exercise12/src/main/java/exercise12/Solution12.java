@@ -31,7 +31,7 @@ public class Solution12 {
     }
 
     private void setRate(double rate) {
-        this.rate = rate / 100;
+        this.rate = rate;
     }
 
     private void setYears(int years) {
@@ -59,15 +59,15 @@ public class Solution12 {
         app.setPrinciple(input.nextDouble());
 
         System.out.print("Enter the rate of interest as a percentage: ");
-        app.setRate(input.nextDouble());
+        app.setRate(input.nextDouble() / 100);
 
         System.out.print("Enter the number of years: ");
         app.setYears(input.nextInt());
 
         app.calculateInvestment();
 
-        String output = "After " + app.getYears() + " at " + app.getRate() + "%, the investment will be worth $" +
-                String.format("%.2f", app.getInvestment()) + ".";
+        String output = "After " + app.getYears() + " at " + app.getRate() + "%, the investment will be worth " +
+                String.format("$%.2f", app.getInvestment()) + ".";
 
         System.out.println(output);
     }
