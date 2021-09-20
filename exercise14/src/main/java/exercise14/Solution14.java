@@ -31,24 +31,24 @@ public class Solution14 {
     private double tax = 0;
     private double orderAmount;
 
-    private void setOrderAmount(String orderAmount) {
+    public void setOrderAmount(String orderAmount) {
         this.orderAmount = round(Double.parseDouble(orderAmount));
     }
 
-    private double getOrderAmount() {
+    public double getOrderAmount() {
         return this.orderAmount;
     }
 
-    private double getTAXWI() {
+    public double getTAXWI() {
         this.tax = this.orderAmount * TAXWI;
         return this.tax;
     }
 
-    private double getTotalAmount() {
+    public double getTotalAmount() {
         return round(this.orderAmount + this.tax);
     }
 
-    private double round(double inputAmount){
+    public double round(double inputAmount){
         inputAmount *= 100;
         String amount = inputAmount + "";
 

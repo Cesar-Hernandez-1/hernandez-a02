@@ -31,16 +31,27 @@ public class Solution19 {
     private static final Scanner input = new Scanner(System.in);
     private double weight;
     private double height;
+    private static final String ERROR = "Please enter a numeric value.";
 
-    private void setWeight(double weight) {
-        this.weight = weight;
+    public void setWeight(String weight) {
+        while(isNotDigit(weight)){
+            System.out.println(ERROR);
+            System.out.print("Enter your weight in pounds: ");
+            weight = input.nextLine();
+        }
+        this.weight = Double.parseDouble(weight);
     }
 
-    private void setHeight(double height) {
-        this.height = height;
+    public void setHeight(String height) {
+        while(isNotDigit(height)){
+            System.out.println(ERROR);
+            System.out.print("Enter your height in inches: ");
+            height = input.nextLine();
+        }
+        this.height = Double.parseDouble(height);
     }
 
-    private double calculateBMI(){
+    public double calculateBMI(){
         return (this.weight / (this.height * this.height)) * 703;
     }
 
@@ -60,30 +71,13 @@ public class Solution19 {
     public static void main(String[] args) {
         Solution19 app = new Solution19();
 
-        String error = "Please enter a numeric value.";
-        String  numericInput;
-
         System.out.print("Enter your height in inches: ");
-        numericInput = input.nextLine();
 
-        while(app.isNotDigit(numericInput)){
-            System.out.println(error);
-            System.out.print("Enter your height in inches: ");
-            numericInput = input.nextLine();
-        }
-
-        app.setHeight(Double.parseDouble(numericInput));
+        app.setHeight(input.nextLine());
 
         System.out.print("Enter your weight in pounds: ");
-        numericInput = input.nextLine();
 
-        while(app.isNotDigit(numericInput)){
-            System.out.println(error);
-            System.out.print("Enter your weight in pounds: ");
-            numericInput = input.nextLine();
-        }
-
-        app.setWeight(Double.parseDouble(numericInput));
+        app.setWeight(input.nextLine());
 
         String output = "Your BMI is " + app.calculateBMI() + "\n";
 

@@ -29,32 +29,32 @@ public class Solution10 {
     private double total;
     private int itemQuantity;
 
-    private void setPrice(String price) {
+    public void setPrice(String price) {
         this.price = Double.parseDouble(price);
     }
 
-    private void setItemQuantity(String itemQuantity) {
+    public void setItemQuantity(String itemQuantity) {
         this.itemQuantity = Integer.parseInt(itemQuantity);
     }
 
-    private void calculateCharges(){
+    public void calculateCharges(){
         this.subtotal += (price * itemQuantity);
     }
 
-    private void calculateTaxes(){
+    public void calculateTaxes(){
         this.tax = subtotal * TAXRATE;
         this.total = subtotal + tax;
     }
 
-    private double getSubtotal() {
+    public double getSubtotal() {
         return this.subtotal;
     }
 
-    private double getTax() {
+    public double getTax() {
         return this.tax;
     }
 
-    private double getTotal() {
+    public double getTotal() {
         return this.total;
     }
 

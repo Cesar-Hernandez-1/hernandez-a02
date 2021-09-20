@@ -33,27 +33,27 @@ public class Solution13 {
     private int years;
     private int compound;
 
-    private void setPrinciple(double principle) {
+    public void setPrinciple(double principle) {
         this.principle = round(principle);
     }
 
-    private void setCompound(int compound) {
+    public void setCompound(int compound) {
         this.compound = compound;
     }
 
-    private int getCompound() {
+    public int getCompound() {
         return this.compound;
     }
 
-    private void setRate(double rate) {
+    public void setRate(double rate) {
         this.rate = rate;
     }
 
-    private double getPrinciple() {
+    public double getPrinciple() {
         return this.principle;
     }
 
-    private void setYears(int years) {
+    public void setYears(int years) {
         this.years = years;
     }
 
@@ -61,19 +61,19 @@ public class Solution13 {
         this.investment = principle * Math.pow((1 + (rate/compound)),(compound * years));
     }
 
-    private double getInvestment() {
+    public double getInvestment() {
         return this.investment;
     }
 
-    private double getRate() {
+    public double getRate() {
         return this.rate*100;
     }
 
-    private int getYears() {
+    public int getYears() {
         return this.years;
     }
 
-    private double round(double inputAmount){
+    public double round(double inputAmount){
         inputAmount *= 100;
         String amount = inputAmount + "";
 

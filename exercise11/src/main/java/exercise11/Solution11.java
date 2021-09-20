@@ -25,23 +25,23 @@ public class Solution11 {
     private double currencyTo;
     private double rate;
 
-    private double getCurrencyTo() {
+    public double getCurrencyTo() {
         return this.currencyTo;
     }
 
-    private double getCurrencyFrom() {
+    public double getCurrencyFrom() {
         return this.currencyFrom;
     }
 
-    private void setCurrencyFrom(double currencyFrom) {
+    public void setCurrencyFrom(double currencyFrom) {
         this.currencyFrom = round(currencyFrom);
     }
 
-    private double getRate() {
+    public double getRate() {
         return this.rate;
     }
 
-    private void setRate(double rate) {
+    public void setRate(double rate) {
         this.rate = rate;
     }
 
@@ -49,7 +49,7 @@ public class Solution11 {
         this.currencyTo = rate * currencyFrom;
     }
 
-    private double round(double inputAmount){
+    public double round(double inputAmount){
         inputAmount *= 100;
         String amount = inputAmount + "";
 

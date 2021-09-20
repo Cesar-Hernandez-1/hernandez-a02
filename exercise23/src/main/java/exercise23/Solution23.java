@@ -20,7 +20,7 @@ public class Solution23 {
     protected static Scanner input = new Scanner(System.in);
     protected static String userAnswer;
 
-    public static void carSilent(){
+    public void carSilent(){
         System.out.print("Are the battery terminals corroded? ");
         userAnswer = input.nextLine();
 
@@ -32,7 +32,7 @@ public class Solution23 {
         System.exit(0);
     }
 
-    public static void carNotSilent(){
+    public void carNotSilent(){
         System.out.print("Does the car make a slicking noise? ");
         userAnswer = input.nextLine();
 
@@ -44,7 +44,7 @@ public class Solution23 {
         System.exit(0);
     }
 
-    public static void noSlickingNoise(){
+    private void noSlickingNoise(){
         System.out.print("Does the car crank up but fail to start? ");
         userAnswer = input.nextLine();
 
@@ -56,7 +56,7 @@ public class Solution23 {
         System.exit(0);
     }
 
-    public static void notFailToStart(){
+    private void notFailToStart(){
         System.out.print("Does the engine start and then die? ");
         userAnswer = input.nextLine();
 
@@ -68,7 +68,7 @@ public class Solution23 {
         System.exit(0);
     }
 
-    public static void startAndDie(){
+    private void startAndDie(){
         System.out.print("Does your car have fuel injection? ");
         userAnswer = input.nextLine();
 
@@ -82,13 +82,14 @@ public class Solution23 {
 
 
     public static void main(String[] args) {
+        Solution23 app = new Solution23();
         System.out.print("Is the car silent when you turn the key? ");
         userAnswer = input.nextLine();
 
         if(Objects.equals(userAnswer, "y")){
-            carSilent();
+            app.carSilent();
         }else if(Objects.equals(userAnswer, "n")){
-            carNotSilent();
+            app.carNotSilent();
         }
     }
 }

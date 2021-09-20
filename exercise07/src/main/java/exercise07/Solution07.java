@@ -24,28 +24,28 @@ public class Solution07 {
     private double areaFeet;
     private double areaMeters;
 
-    private void setLength(double length) {
+    public void setLength(double length) {
         this.length = length;
     }
 
-    private double getLength() { return this.length; }
+    public double getLength() { return this.length; }
 
-    private double getWidth()  { return this.width; }
+    public double getWidth()  { return this.width; }
 
-    private void setWidth(double width) {
+    public void setWidth(double width) {
         this.width = width;
     }
 
-    private void setArea() {
+    public void setArea() {
         this.areaFeet = this.length * this.width;
         this.areaMeters = this.areaFeet * CONVERSIANFACTOR;
     }
 
-    private double getAreaMeters() {
+    public double getAreaMeters() {
         return areaMeters;
     }
 
-    private double getAreaFeet() {
+    public double getAreaFeet() {
         return areaFeet;
     }
 
@@ -53,10 +53,10 @@ public class Solution07 {
         Solution07 app = new Solution07();
 
         System.out.print("What is the length of the room in feet? ");
-        app.setLength(input.nextInt());
+        app.setLength(input.nextDouble());
 
         System.out.print("What is the width of the room in feet? ");
-        app.setWidth(input.nextInt());
+        app.setWidth(input.nextDouble());
 
         app.setArea();
 

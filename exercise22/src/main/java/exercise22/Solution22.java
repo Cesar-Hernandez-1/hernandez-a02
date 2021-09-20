@@ -29,17 +29,17 @@ public class Solution22 {
     private double number2;
     private double number3;
 
-    private void setNumber1(double number1) { this.number1 = number1; }
+    public void setNumber1(double number1) { this.number1 = number1; }
 
-    private void setNumber2(double number2) {
+    public void setNumber2(double number2) {
         this.number2 = number2;
     }
 
-    private void setNumber3(double number3) {
+    public void setNumber3(double number3) {
         this.number3 = number3;
     }
 
-    private double getHighest(){
+    public double getHighest(){
         if (number1 == number2 || number1 == number3 || number2 == number3){
             System.exit(0);
         }

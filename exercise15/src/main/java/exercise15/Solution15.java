@@ -22,22 +22,26 @@ public class Solution15 {
     private static final Scanner input = new Scanner(System.in);
     private static final String PASSWORD= "abc$123";
 
-    private String isPassword(String password){
+    public boolean isPassword(String password){
         if(Objects.equals(password, PASSWORD)){
-            return "Welcome!";
+            return true;
         }else{
-            return "I don't know you.";
+            return false;
         }
     }
 
     public static void main(String[] args) {
         Solution15 app = new Solution15();
+        String output;
 
         System.out.print("What is the password? ");
 
-        String output = app.isPassword(input.nextLine());
+        if(app.isPassword(input.nextLine())){
+            output = "Welcome!";
+        }else{
+            output = "I don't know you.";
+        }
 
         System.out.println(output);
-
     }
 }

@@ -17,6 +17,7 @@
 
 package exercise08;
 
+import java.awt.datatransfer.FlavorEvent;
 import java.util.Scanner;
 
 public class Solution08 {
@@ -26,33 +27,33 @@ public class Solution08 {
     private int slices;
     private int share;
 
-    private void setPeople(int people) { this.people = people; }
+    public void setPeople(int people) { this.people = people; }
 
-    private void setPizzas(int pizzas) {
+    public void setPizzas(int pizzas) {
         this.pizzas = pizzas;
     }
 
-    private void setSlices(int slices) {
+    public void setSlices(int slices) {
         this.slices = slices;
     }
 
-    private void setShare() {
+    public void setShare() {
         this.share = (pizzas * slices) / people;
     }
 
-    private int getPeople() {
+    public int getPeople() {
         return people;
     }
 
-    private int getPizzas() {
+    public int getPizzas() {
         return pizzas;
     }
 
-    private int getSlices() {
+    public int getSlices() {
         return slices;
     }
 
-    private int sharePizza(){
+    public int sharePizza(){
         if(share % 2 == 0){
             return share;
         }else{
@@ -60,8 +61,8 @@ public class Solution08 {
         }
     }
 
-    private int leftovers(){
-        return share % 2;
+    public int leftovers(){
+        return (int) Math.ceil(((pizzas * (double)slices) / people) % 2);
     }
 
     public static void main(String[] args) {

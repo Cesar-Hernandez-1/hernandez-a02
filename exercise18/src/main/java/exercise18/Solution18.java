@@ -33,7 +33,7 @@ import java.util.Scanner;
 public class Solution18 {
     private static final Scanner input = new Scanner(System.in);
 
-    private double calculateTemperature(double temp, String tempChoice){
+    public double calculateTemperature(double temp, String tempChoice){
         if(tempChoice.contains("Fahrenheit")){
             return (temp - 32) * 5 / 9;
         }else{
@@ -55,6 +55,5 @@ public class Solution18 {
 
         System.out.print("Please enter t" + tempPrompt + ": ");
         System.out.printf("T%s is %f.", tempPrompt, app.calculateTemperature(input.nextDouble(),tempPrompt));
-
     }
 }

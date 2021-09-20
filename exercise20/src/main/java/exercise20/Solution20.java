@@ -35,19 +35,19 @@ public class Solution20 {
     private double tax;
 
 
-    private void setOrderAmount(double orderAmount) {
+    public void setOrderAmount(double orderAmount) {
         this.orderAmount = round(orderAmount);
     }
 
-    private void setState(String state) {
+    public void setState(String state) {
         this.state = state;
     }
 
-    private void setCounty(String county) {
+    public void setCounty(String county) {
         this.county = county;
     }
 
-    private double calculateTax(){
+    public double calculateTax(){
         if (Objects.equals(state, "Wisconsin")){
             this.tax += this.orderAmount * (0.05);
             if(Objects.equals(county, "Eau Claire")){
@@ -63,11 +63,11 @@ public class Solution20 {
         return this.tax;
     }
 
-    private double calculateTotal(){
+    public double calculateTotal(){
         return this.orderAmount + this.tax;
     }
 
-    private double round(double inputAmount){
+    public double round(double inputAmount){
         inputAmount *= 100;
         String amount = inputAmount + "";
 

@@ -31,23 +31,23 @@ public class Solution06 {
     private int userAge;
     private int retireAge;
 
-    private int getYEAR() {
+    public int getYEAR() {
         return YEAR;
     }
 
-    private void setUserAge(String userAGE) {
+    public void setUserAge(String userAGE) {
         this.userAge = Integer.parseInt(userAGE);
     }
 
-    private void setRetireAge(String retireAge) {
+    public void setRetireAge(String retireAge) {
         this.retireAge = Integer.parseInt(retireAge);
     }
 
-    private String yearsLeft(){
+    public String yearsLeft(){
         return String.valueOf(this.retireAge - this.userAge);
     }
 
-    private String retireYear(){
+    public String retireYear(){
         return String.valueOf(YEAR + (this.retireAge - this.userAge));
     }
 

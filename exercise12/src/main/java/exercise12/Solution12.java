@@ -26,9 +26,9 @@ public class Solution12 {
     private double investment;
     private int years;
 
-    private void setPrinciple(double principle) { this.principle = round(principle); }
+    public void setPrinciple(double principle) { this.principle = round(principle); }
 
-    private void setRate(double rate) {
+    public void setRate(double rate) {
         this.rate = rate;
     }
 
@@ -40,17 +40,17 @@ public class Solution12 {
         this.investment = principle * (1 + (rate * years));
     }
 
-    private double getInvestment() { return this.investment; }
+    public double getInvestment() { return this.investment; }
 
-    private double getRate() {
+    public double getRate() {
         return this.rate*100;
     }
 
-    private int getYears() {
+    public int getYears() {
         return this.years;
     }
 
-    private double round(double inputAmount){
+    public double round(double inputAmount){
         inputAmount *= 100;
         String amount = inputAmount + "";
 

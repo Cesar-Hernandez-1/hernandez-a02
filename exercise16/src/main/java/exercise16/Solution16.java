@@ -20,13 +20,12 @@ public class Solution16 {
     private static final Scanner input = new Scanner(System.in);
     private int userAge;
 
-    private void setUserAge(int userAge) {
+    public void setUserAge(int userAge) {
         this.userAge = userAge;
     }
 
-    private String isLegal(){
-        return (this.userAge < 16) ? "You are not old enough to legally drive." : ("You are old enough to" +
-                " legally drive.");
+    public boolean isLegal(){
+        return (this.userAge < 16);
     }
 
     public static void main(String[] args) {
@@ -36,7 +35,8 @@ public class Solution16 {
         System.out.print("What is your age? ");
         app.setUserAge(input.nextInt());
 
-        output = app.isLegal();
+        output = app.isLegal()? "You are not old enough to legally drive." : ("You are old enough to" +
+                " legally drive.");
 
         System.out.println(output);
     }

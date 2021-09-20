@@ -26,11 +26,11 @@ public class Solution21 {
     private static final Scanner input = new Scanner(System.in);
     private int monthNumber;
 
-    private void setMonthNumber(int monthNumber) {
+    public void setMonthNumber(int monthNumber) {
         this.monthNumber = monthNumber;
     }
 
-    private String getMonthName(){
+    public String getMonthName(){
         String monthNamePrompt = "The name of the month is ";
         String monthName;
         switch (monthNumber){

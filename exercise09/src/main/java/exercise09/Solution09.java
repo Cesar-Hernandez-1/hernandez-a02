@@ -25,13 +25,13 @@ public class Solution09 {
     private double area;
     private int gallonNum;
 
-    private void setLength(double length){this.length = length;}
-    private void setWidth(double width){this.width = width;}
-    private void setArea(){ this.area = length * width; }
-    private void setGallonNum(){ this.gallonNum = (int) Math.ceil(area / GALLONAREA);}
+    public void setLength(double length){this.length = length;}
+    public void setWidth(double width){this.width = width;}
+    public void setArea(){ this.area = length * width; }
+    public void setGallonNum(){ this.gallonNum = (int) Math.ceil(area / GALLONAREA);}
 
-    private double getArea(){return Double.parseDouble(String.format("%.2f",this.area));}
-    private int getGallonNum(){return this.gallonNum;}
+    public double getArea(){return Double.parseDouble(String.format("%.2f",this.area));}
+    public int getGallonNum(){return this.gallonNum;}
 
     public static void main(String[] args) {
         Solution09 app = new Solution09();
